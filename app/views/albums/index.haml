@@ -1,0 +1,15 @@
+#about
+  Rick is an underwater photographer living in Sydney and taking pictures of wrecks, reefs and marine wildlife using a Canon 40D SLR camera inside an Ikelite housing with a DS160 strobe and an rEvo rebreather. He does a lot of his diving with
+  = link_to 'Sydney Sub Aqua Club', 'http://www.sydneysubaquaclub.com'
+  and invites you join them for a dive!
+  
+%ul#albums
+  -@albums.each do |album|
+    %li{:class => cycle('album', 'album', 'last_album')}
+      %a{:href => "/#{camelize(album.name)}", :title => "#{album.name} photographs"}
+        %img.thumbnail{:src => album.thumbnail_url, :alt => album.name, :title => album.name}
+      .details
+        %h3.title
+          %a{:href => "/#{camelize(album.name)}", :title => "#{album.name} photographs"}=album.name
+        .blurb
+          %a{:href => "/#{camelize(album.name)}", :title => "#{album.name} photographs"}=raw album.blurb

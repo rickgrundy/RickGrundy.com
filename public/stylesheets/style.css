@@ -1,0 +1,156 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  line-height: 1.4em;
+  font-size: 9pt;
+  font-family: Verdana, Arial, sans-serif;
+  color: #666666;
+  font-weight: normal; }
+
+body {
+  line-height: 1; }
+
+ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+.clear {
+  clear: both; }
+
+a, a:active, a:visited, a:hover {
+  color: black; }
+
+body {
+  text-align: center;
+  padding-top: 30px;
+  background: url(body_bg.png) repeat-x left 30px; }
+
+#page {
+  width: 930px;
+  margin: 0px auto;
+  text-align: left; }
+
+#header {
+  margin-bottom: 20px;
+  height: 143px;
+  background: url(header.png) no-repeat top left; }
+  #header h1 a, #header h2 a {
+    display: block;
+    width: 0px;
+    padding-left: 930px;
+    overflow: hidden;
+    height: 70px; }
+
+#footer {
+  margin: 0px 0px 20px 0px;
+  padding-top: 15px;
+  border-top: dotted 1px #666666; }
+  #footer #copyright {
+    float: left; }
+  #footer #account {
+    float: left;
+    margin-left: 10px; }
+  #footer #email {
+    float: right; }
+
+#content #about, #content #admin_controls, #content #user_controls {
+  padding-bottom: 8px;
+  margin-bottom: 10px;
+  border-bottom: dotted 1px #666666;
+  text-align: justify; }
+#content #about {
+  padding-bottom: 15px;
+  margin-bottom: 15px; }
+#content #admin_controls input, #content #admin_controls a, #content #admin_controls select {
+  margin-right: 10px; }
+#content #album #description, #content #photo #description {
+  margin-bottom: 5px;
+  padding-bottom: 15px;
+  border-bottom: dotted 1px #666666; }
+  #content #album #description h2, #content #photo #description h2 {
+    font-size: 16pt;
+    font-weight: normal;
+    margin-bottom: 0px;
+    color: black; }
+  #content #album #description h4, #content #photo #description h4 {
+    font-size: 9pt;
+    font-weight: normal;
+    text-align: justify; }
+  #content #album #description input, #content #photo #description input {
+    margin-right: 10px; }
+  #content #album #description input.editor_field, #content #photo #description input.editor_field {
+    width: 800px; }
+#content #album #description {
+  margin-bottom: 15px; }
+#content #album ul#photos .photo, #content #album ul#photos .last_photo {
+  float: left;
+  margin: 0px 30px 15px 0px;
+  width: 162px;
+  height: 190px;
+  position: relative; }
+#content #album ul#photos .last_photo {
+  margin-right: 0px; }
+#content #album ul#photos .title {
+  height: 25px;
+  overflow: hidden; }
+#content #album ul#photos a {
+  text-decoration: none;
+  font-size: 7pt; }
+#content #album ul#photos a span {
+  display: block;
+  font-size: 7pt; }
+#content #album ul#photos .photo_admin_controls {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  padding: 2px 5px 3px;
+  background: white;
+  opacity: 0.5; }
+#content ul#albums .album, #content ul#albums .last_album {
+  float: left;
+  margin: 0px 30px 20px 0px;
+  width: 290px; }
+#content ul#albums .last_album {
+  margin-right: 0px; }
+#content ul#albums .details {
+  height: 70px;
+  overflow: hidden;
+  padding-bottom: 5px;
+  border-bottom: dotted 1px #666666; }
+#content ul#albums h3.title a {
+  text-decoration: none;
+  color: black;
+  font-weight: normal; }
+#content ul#albums .blurb a {
+  text-align: justify;
+  font-size: 7pt;
+  text-decoration: none;
+  color: #666666; }
+#content #moveDestinations {
+  position: absolute;
+  background: white;
+  opacity: 0.8;
+  padding: 7px 0px;
+  border: dotted 1px #666666; }
+  #content #moveDestinations a {
+    display: block;
+    margin: 3px 10px; }
+  #content #moveDestinations a.cancel {
+    margin-top: 20px;
+    text-align: right; }
+#content #photo #user_controls {
+  text-align: center; }
+  #content #photo #user_controls #next_prev_links {
+    float: right; }
+  #content #photo #user_controls #back_to_album_link {
+    float: left; }
+#content #photo #exif {
+  text-align: right;
+  margin-bottom: 15px;
+  font-size: 8pt; }
+#content #photo #frame {
+  text-align: center; }

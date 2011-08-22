@@ -3,6 +3,8 @@
   #next_prev_links
     -if @previous_photo
       =link_to raw("&lsaquo; #{@previous_photo.title}"), @previous_photo.path
+    -if @previous_photo && @next_photo
+      |
     -if @next_photo
       |
       =link_to raw("#{@next_photo.title} &rsaquo;"), @next_photo.path

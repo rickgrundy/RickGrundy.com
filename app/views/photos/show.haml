@@ -1,9 +1,13 @@
 #photo
   #description
-    %h2=@photo.title
-    %h4=@photo.blurb
+    %h2.editable=@photo.title
+    %h4.editable=@photo.blurb
    
   =render :partial => 'user_controls'
   
   #frame
     %img{:src => @photo.url, :alt => @photo.title, :title => @photo.title}
+    
+-content_for :admin do          
+  :javascript
+    inplaceEdit('#{album_path(@album)}');    

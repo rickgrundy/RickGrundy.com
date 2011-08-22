@@ -1,4 +1,6 @@
 class PhotosController < ApplicationController
+  before_filter :authenticate_user!, :except => [:show]
+    
   def show
     @photo = Photo.find(params[:id])
     @album = @photo.albums.first
@@ -7,4 +9,9 @@ class PhotosController < ApplicationController
     @next_photo = @album.photos[this_index + 1]
     @page_title = "#{@album.name} - #{@photo.title} | Rick Grundy"
   end
+  
+	def update
+    Photo.find(params[:id]).update_attributes!(params[:field] => params[:value])
+	  render :text => params[:value]
+	end
 end

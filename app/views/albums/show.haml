@@ -1,7 +1,7 @@
 #album
   #description
-    %h2=@album.name
-    %h3=raw @album.blurb
+    %h2.editable#name=@album.name
+    %h3.editable#blurb=raw(@album.blurb)
   
   %ul#photos
     -@album.photos.each do |photo|
@@ -9,3 +9,10 @@
         %a{:href => photo.path, :title => "#{photo.title} photograph"}
           %img.thumbnail{:src => photo.url_thumb, :alt => photo.title, :title => photo.title}
           %span.title=photo.title
+          
+=form_for @album do |f|
+  foo
+          
+-content_for :admin do          
+  :javascript
+    inplaceEdit('#{album_path(@album)}');

@@ -3,11 +3,16 @@
   %head      
     %meta{:name => 'keywords', :content => 'photography, underwater, underwater photography, diving, scuba, sydney, australia, wreck, reef, wildlife, photographer, sydney sub aqua club, bsac, rebreather, revo, ccr'}/
     %meta{:name => 'description', :content => 'Underwater photography and pictures of wrecks, reefs, scuba diving and marine wildlife from Australia and around the world.'}/
+    =csrf_meta_tag
     
     %title
       =@page_title ? @page_title : "Rick Grundy's Photography"
     
     =stylesheet_link_tag 'screen'
+    -if current_user
+      =javascript_include_tag "#{request.protocol}ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
+      =javascript_include_tag "jquery.jeditable.min.js"
+      =javascript_include_tag "application.js"
 
   %body
     #page

@@ -2,7 +2,7 @@ class AlbumsController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show, :show_by_name]
   
 	def index
-	  @albums = Album.find(:all, :order => :position).reject{|a| a.hidden}
+	  @albums = Album.where(hidden: false).order(:position)
 	end
 	
 	def show
@@ -21,4 +21,12 @@ class AlbumsController < ApplicationController
     Album.find(params[:id]).update_attributes!(params[:field] => params[:value])
 	  render :text => params[:value]
 	end
+	
+	def sort
+    Album.all.each do |album|
+      album.position = params[:album].index(album.id.to_s)
+      album.save
+    end
+    render :nothing => true
+  end
 end

@@ -10,7 +10,8 @@
     
     =stylesheet_link_tag 'screen'
     -if current_user
-      =javascript_include_tag "#{request.protocol}ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"
+      =javascript_include_tag "#{request.protocol}ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"
+      =javascript_include_tag "#{request.protocol}ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"
       =javascript_include_tag "jquery.jeditable.min.js"
       =javascript_include_tag "application.js"
 
@@ -19,13 +20,11 @@
       #header
         %h1=link_to 'Rick Grundy', root_path
         %h2=link_to 'Underwater photography from Australia and around the world', root_path
-    
       #content=yield
       
+      .clear
       -if current_user
         #admin=yield :admin
-
-      .clear
             
       #footer
         #email

@@ -1,5 +1,6 @@
 class Album < ActiveRecord::Base  
-  has_and_belongs_to_many :photos, :order => :created_at
+  has_and_belongs_to_many :photos
+  acts_as_list
   
   def Album.find_by_name(camelized_name)
     albums = Album.find(:all)

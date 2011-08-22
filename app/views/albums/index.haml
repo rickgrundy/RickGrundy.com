@@ -5,7 +5,7 @@
   
 %ul#albums
   -@albums.each do |album|
-    %li{:class => cycle('album', 'album', 'last_album')}
+    %li{:id => "album_#{album.id}", :class => cycle('album', 'album', 'last_album')}
       %a{:href => album.path, :title => "#{album.name} photographs"}
         %img.thumbnail{:src => album.thumbnail_url, :alt => album.name, :title => album.name}
       .details
@@ -18,3 +18,6 @@
   =link_to "Import Photos", import_path
   |
   =link_to "Logout", destroy_user_session_path
+
+  :javascript
+    sortable('#albums', '#{sort_albums_path}', albumsSorted);

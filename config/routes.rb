@@ -1,7 +1,9 @@
 RickGrundy::Application.routes.draw do  
   root :to => 'albums#index'  
   
-  resources :albums
+  resources :albums do
+    put :sort, :on => :collection
+  end
   resources :photos
   resource :import
   

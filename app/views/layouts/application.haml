@@ -7,14 +7,18 @@
     %title
       =@page_title ? @page_title : "Rick Grundy's Photography"
     
-    =stylesheet_link_tag 'style'
+    =stylesheet_link_tag 'screen'
 
   %body
     #page
       #header
         %h1=link_to 'Rick Grundy', root_path
         %h2=link_to 'Underwater photography from Australia and around the world', root_path
-      
+
+      #flashes  
+        -flash.each do |key, msg|
+          %div{:class => key}=msg
+    
       #content=yield
 
       .clear

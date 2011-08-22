@@ -1,6 +1,10 @@
 class Photo < ActiveRecord::Base
   has_and_belongs_to_many :albums
   
+  def path
+    "/photo/#{self.id}/#{self.title.urlify}"
+  end
+  
   def url
     "http://s3.amazonaws.com/RickGrundy#{self.url_path}/#{self.id}.jpg"
   end

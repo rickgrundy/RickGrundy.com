@@ -6,6 +6,10 @@ class Album < ActiveRecord::Base
 	  albums.find{|album| album.name.gsub(' ', '').upcase == camelized_name.upcase}
   end
   
+  def path
+    "/#{self.name.urlify}"
+  end
+  
   def name
     self.name? ? super : "Untitled Album #{self.id}"
   end

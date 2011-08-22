@@ -6,10 +6,16 @@
 %ul#albums
   -@albums.each do |album|
     %li{:class => cycle('album', 'album', 'last_album')}
-      %a{:href => "/#{camelize(album.name)}", :title => "#{album.name} photographs"}
+      %a{:href => album.path, :title => "#{album.name} photographs"}
         %img.thumbnail{:src => album.thumbnail_url, :alt => album.name, :title => album.name}
       .details
         %h3.title
-          %a{:href => "/#{camelize(album.name)}", :title => "#{album.name} photographs"}=album.name
-        .blurb
-          %a{:href => "/#{camelize(album.name)}", :title => "#{album.name} photographs"}=raw album.blurb
+          %a{:href => album.path, :title => "#{album.name} photographs"}=album.name
+        .blurb         
+          %a{:href => album.path, :title => "#{album.name} photographs"}=raw album.blurb
+          
+
+if current_user
+  =link_to "Import Photos", import_path
+else
+  =link_to "Login", new_user_session_path

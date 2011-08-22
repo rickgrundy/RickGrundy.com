@@ -2,10 +2,10 @@
 
   #next_prev_links
     -if @previous_photo
-      %a{:href => "/photo/#{@previous_photo.id}/#{camelize(@previous_photo.title)}"}=raw "&lsaquo; #{@previous_photo.title}"
+      %a{:href => @previous_photo.path}=raw "&lsaquo; #{@previous_photo.title}"
       =' | ' if @next_photo
     -if @next_photo
-      %a{:href => "/photo/#{@next_photo.id}/#{camelize(@next_photo.title)}"}=raw "#{@next_photo.title} &rsaquo;"
+      %a{:href => @next_photo.path}=raw "#{@next_photo.title} &rsaquo;"
   #back_to_album_link
     %h3=link_to raw("&laquo; Back to #{@album.name}"), "/#{camelize(@album.name)}"
   .clear

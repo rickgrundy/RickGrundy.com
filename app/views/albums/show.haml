@@ -6,6 +6,6 @@
   %ul#photos
     -@album.sorted_photos.each do |photo|
       %li{:class => cycle('photo', 'photo', 'photo', 'photo', 'last_photo'), :id => "photo_#{photo.id}"}
-        %a{:href => "/photo/#{photo.id}/#{camelize(photo.title)}", :title => "#{photo.title} photograph"}
+        %a{:href => photo.path, :title => "#{photo.title} photograph"}
           %img.thumbnail{:src => photo.url_thumb, :alt => photo.title, :title => photo.title}
           %span.title=photo.title

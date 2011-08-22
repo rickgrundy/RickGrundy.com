@@ -26,6 +26,11 @@
         #email
           Need to get in touch? 
           =mail_to 'rick@rickgrundy.com', 'rick@rickgrundy.com'
+        #admin
+          -if current_user
+            =link_to "Import Photos", import_path
+          -else
+            =link_to "Login", new_user_session_path          
         #copyright Copyright &copy; Rick Grundy, 2008-
         =Date.today.year
         .clear

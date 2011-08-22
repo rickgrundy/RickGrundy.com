@@ -13,9 +13,3 @@
           %a{:href => album.path, :title => "#{album.name} photographs"}=album.name
         .blurb         
           %a{:href => album.path, :title => "#{album.name} photographs"}=raw album.blurb
-          
-
-if current_user
-  =link_to "Import Photos", import_path
-else
-  =link_to "Login", new_user_session_path

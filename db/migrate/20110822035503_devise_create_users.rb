@@ -7,14 +7,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.timestamps
     end
     
-    User.connection.execute <<-EOS
-    INSERT INTO users(email, encrypted_password, password_salt)
-    VALUES(
-      "rick@rickgrundy.com", 
-      "$2a$10$n7E6/2xc25YKt44sikKVOe/iyW4zJinHffPT8aobIHDydL7P7kmYq",
-      "$2a$10$n7E6/2xc25YKt44sikKVOe"
-    );
-    EOS
+    User.connection.execute "INSERT INTO users (email, encrypted_password, password_salt) VALUES ('rick@rickgrundy.com', '$2a$10$n7E6/2xc25YKt44sikKVOe/iyW4zJinHffPT8aobIHDydL7P7kmYq', '$2a$10$n7E6/2xc25YKt44sikKVOe');"
   end
 
   def self.down

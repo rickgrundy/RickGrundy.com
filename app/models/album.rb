@@ -1,5 +1,5 @@
 class Album < ActiveRecord::Base  
-  has_and_belongs_to_many :photos
+  has_and_belongs_to_many :photos, :order => :created_at
   
   def Album.find_by_name(camelized_name)
     albums = Album.find(:all)
@@ -20,9 +20,5 @@ class Album < ActiveRecord::Base
 
   def thumbnail_url
     "http://s3.amazonaws.com/RickGrundy/photos/album_thumbnails/#{self.id}.jpg"
-  end
-  
-  def sorted_photos
-    self.photos.sort{|a, b| (a.taken && b.taken) ? (a.taken <=> b.taken) : (a.id <=> b.id)}
   end
 end

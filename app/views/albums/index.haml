@@ -13,3 +13,8 @@
           %a{:href => album.path, :title => "#{album.name} photographs"}=album.name
         .blurb         
           %a{:href => album.path, :title => "#{album.name} photographs"}=raw album.blurb
+          
+-content_for :admin do
+  =link_to "Import Photos", import_path
+  |
+  =link_to "Logout", destroy_user_session_path

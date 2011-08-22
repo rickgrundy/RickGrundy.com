@@ -14,23 +14,18 @@
       #header
         %h1=link_to 'Rick Grundy', root_path
         %h2=link_to 'Underwater photography from Australia and around the world', root_path
-
-      #flashes  
-        -flash.each do |key, msg|
-          %div{:class => key}=msg
     
       #content=yield
+      
+      -if current_user
+        #admin=yield :admin
 
       .clear
+            
       #footer
         #email
           Need to get in touch? 
           =mail_to 'rick@rickgrundy.com', 'rick@rickgrundy.com'
-        #admin
-          -if current_user
-            =link_to "Import Photos", import_path
-          -else
-            =link_to "Login", new_user_session_path          
         #copyright Copyright &copy; Rick Grundy, 2008-
         =Date.today.year
         .clear

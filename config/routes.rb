@@ -4,7 +4,11 @@ RickGrundy::Application.routes.draw do
   resources :albums do
     put :sort, :on => :collection
   end
-  resources :photos
+  
+  resources :photos do
+    put :sort, :on => :collection
+  end
+  
   resource :import
   
   devise_for :users do

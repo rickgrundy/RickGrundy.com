@@ -22,7 +22,6 @@ function sortable(listSelector, path, onSort) {
 				complete: function() { list.effect('highlight'); },
 				url: path
 			});
-			onSort(list);
 		};
 		
 		list.sortable({
@@ -30,17 +29,26 @@ function sortable(listSelector, path, onSort) {
 			cursor: 'crosshair',
 			opacity: 0.4,
 			scroll: true,
-			update: sortableUpdated
+			update: sortableUpdated,
+			change: onSort
 		});
 	});
 }
 
-function albumsSorted(list) {
-  list.find("li").each(function(i, el) {
+function gridSorted(list, perRow, mainClass, lastClass) {
+	list.find("li").each(function(i, el) {
 		var li = $(el);
-		li.addClass('album').removeClass('last_album');
-		if (i % 3 == 2) {
-		  li.addClass('last_album').removeClass('album');
+		li.addClass(mainClass).removeClass(lastClass);
+		if (i % perRow == perRow-1) {1
+		  li.addClass(lastClass).removeClass(mainClass);
 		}
 	});
+}
+
+function albumsSorted(ev) {
+	gridSorted($(ev.target), 3, 'album', 'last_album');
+}
+
+function photosSorted(ev) {
+ 	gridSorted($(ev.target), 5, 'photo', 'last_photo');
 }

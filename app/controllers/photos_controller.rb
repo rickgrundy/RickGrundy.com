@@ -14,4 +14,12 @@ class PhotosController < ApplicationController
     Photo.find(params[:id]).update_attributes!(params[:field] => params[:value])
 	  render :text => params[:value]
 	end
+	
+	def sort
+    Photo.all.each do |photo|
+      photo.position = params[:photo].index(photo.id.to_s)
+      photo.save
+    end
+    render :nothing => true
+  end
 end

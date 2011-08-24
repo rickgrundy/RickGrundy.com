@@ -1,6 +1,7 @@
 class Photo < ActiveRecord::Base
   has_and_belongs_to_many :albums
-  
+  acts_as_list
+    
   def path
     "/photo/#{self.id}/#{self.title.urlify}"
   end

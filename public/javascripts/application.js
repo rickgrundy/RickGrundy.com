@@ -39,7 +39,7 @@ function gridSorted(list, perRow, mainClass, lastClass) {
 	list.find("li").each(function(i, el) {
 		var li = $(el);
 		li.addClass(mainClass).removeClass(lastClass);
-		if (i % perRow == perRow-1) {1
+		if (i % perRow == perRow-1) {
 		  li.addClass(lastClass).removeClass(mainClass);
 		}
 	});

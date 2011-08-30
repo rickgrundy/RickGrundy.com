@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110824082522) do
+ActiveRecord::Schema.define(:version => 20110830050559) do
 
   create_table "albums", :force => true do |t|
     t.string   "name"
@@ -18,7 +18,8 @@ ActiveRecord::Schema.define(:version => 20110824082522) do
     t.integer  "position"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "hidden",     :default => false
+    t.boolean  "hidden",         :default => false
+    t.integer  "cover_image_id", :default => 1
   end
 
   create_table "albums_photos", :id => false, :force => true do |t|
@@ -29,11 +30,13 @@ ActiveRecord::Schema.define(:version => 20110824082522) do
   create_table "photos", :force => true do |t|
     t.string   "title"
     t.text     "blurb"
-    t.string   "folder_path"
-    t.string   "url_path"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "users", :force => true do |t|

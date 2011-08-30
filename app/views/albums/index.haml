@@ -7,7 +7,7 @@
   -@albums.each do |album|
     %li{:id => "album_#{album.id}", :class => cycle('album', 'album', 'last_album')}
       %a{:href => album.path, :title => "#{album.name} photographs"}
-        %img.thumbnail{:src => album.thumbnail_url, :alt => album.name, :title => album.name}
+        %img.thumbnail{:src => album.cover_image.image.url(:frontpage), :alt => album.name, :title => album.name}
       .details
         %h3.title
           %a{:href => album.path, :title => "#{album.name} photographs"}=album.name

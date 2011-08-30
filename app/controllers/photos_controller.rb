@@ -15,11 +15,22 @@ class PhotosController < ApplicationController
 	  render :text => params[:value]
 	end
 	
-	def sort
+  def sort
     Photo.all.each do |photo|
       photo.position = params[:photo].index(photo.id.to_s)
       photo.save
     end
     render :nothing => true
+  end
+  
+  def new
+    @album = Album.find(params[:album_id])
+    @photo = @album.photos.new
+  end
+  
+  def create
+    @album = Album.find(params[:album_id])
+    @photo = @album.photos.create!(params[:photo])
+    redirect_to album_path(@album)
   end
 end

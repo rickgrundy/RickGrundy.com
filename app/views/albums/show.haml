@@ -7,10 +7,13 @@
     -@album.photos.each do |photo|
       %li{:id => "photo_#{photo.id}", :class => cycle('photo', 'photo', 'photo', 'photo', 'last_photo'), :id => "photo_#{photo.id}"}
         %a{:href => photo.path, :title => "#{photo.title} photograph"}
-          %img.thumbnail{:src => photo.url_thumb, :alt => photo.title, :title => photo.title}
+          %img.thumbnail{:src => photo.image.url(:thumbnail), :alt => photo.title, :title => photo.title}
           %span.title=photo.title
           
 -content_for :admin do          
+  Cover image: 
+  %span.editable#cover_image_id=@album.cover_image_id
+  =link_to "Add Photo", new_photo_path(:album_id => @album)
   :javascript
     inplaceEdit('#{album_path(@album)}');
     sortable('#photos', '#{sort_photos_path}', photosSorted);

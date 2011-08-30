@@ -1,17 +1,25 @@
 class Photo < ActiveRecord::Base
   has_and_belongs_to_many :albums
   acts_as_list
-    
+
+  has_attached_file :image, {
+    :whiny => true,
+    :storage => :s3,
+    :s3_credentials => {
+      :access_key_id => ENV["S3_KEY"],
+      :secret_access_key => ENV["S3_SECRET"]
+    },
+    :bucket => "RickGrundy.com-#{Rails.env}",
+    :path => "images/:style/:id.:extension",
+    :styles => { 
+      :full => "930x620>",
+      :thumbnail => "162x162#",
+      :frontpage => "290x160#"
+    }
+  }    
+  
   def path
     "/photo/#{self.id}/#{self.title.urlify}"
-  end
-  
-  def url
-    "http://s3.amazonaws.com/RickGrundy#{self.url_path}/#{self.id}.jpg"
-  end
-  
-  def url_thumb
-    "http://s3.amazonaws.com/RickGrundy#{self.url_path}/#{self.id}_thumb.jpg"
   end
   
   def title

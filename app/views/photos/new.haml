@@ -1,0 +1,13 @@
+=form_for @photo, :html => {:multipart => true} do |f|
+  =hidden_field_tag :album_id, @album.id
+  
+  =f.label :title
+  =f.text_field :title
+  
+  =f.label :blurb
+  =f.text_field :blurb
+  
+  =f.label :image
+  =f.file_field :image
+  
+  =f.submit

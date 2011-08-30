@@ -6,7 +6,7 @@
   =render :partial => 'user_controls'
   
   #frame
-    %img{:src => @photo.url, :alt => @photo.title, :title => @photo.title}
+    %img{:src => @photo.image.url(:full), :alt => @photo.title, :title => @photo.title}
     
 -content_for :admin do          
   :javascript

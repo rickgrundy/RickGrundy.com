@@ -7,7 +7,8 @@
   
   #frame
     %img{:src => @photo.image.url(:full), :alt => @photo.title, :title => @photo.title}
-    
--content_for :admin do          
-  :javascript
-    inplaceEdit('#{album_path(@album)}');    
+
+-if user_signed_in?    
+  -content_for :admin do          
+    :javascript
+      inplaceEdit('#{album_path(@album)}');    

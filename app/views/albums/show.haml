@@ -10,15 +10,18 @@
           %img.thumbnail{:src => photo.image.url(:thumbnail), :alt => photo.title, :title => photo.title}
           %span.title=photo.title
           
--content_for :admin do          
-  Cover image: 
-  %span.editable#cover_image_id=@album.cover_image_id
+-if user_signed_in?          
+  -content_for :admin do          
+    Cover image: 
+    %span.editable#cover_image_id=@album.cover_image_id
   
-  Hidden? 
-  %span.editable#hidden=@album.hidden
+    Hidden? 
+    %span.editable#hidden=@album.hidden
+    
+    =link_to "Delete Album", album_path(@album), :method => :delete, :confirm => "Really delete this album?"
   
-  =link_to "Add Photo", new_photo_path(:album_id => @album)
+    =link_to "Add Photo", new_photo_path(:album_id => @album)
   
-  :javascript
-    inplaceEdit('#{album_path(@album)}');
-    sortable('#photos', '#{sort_photos_path}', photosSorted);
+    :javascript
+      inplaceEdit('#{album_path(@album)}');
+      sortable('#photos', '#{sort_photos_path}', photosSorted);

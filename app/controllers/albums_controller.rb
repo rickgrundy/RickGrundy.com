@@ -30,4 +30,18 @@ class AlbumsController < ApplicationController
     end
     render :nothing => true
   end
+  
+  def new
+    @album = Album.new
+  end
+  
+  def create
+    @album = Album.create!(params[:album].merge(:hidden => true))
+    redirect_to @album.path
+  end
+  
+  def destroy
+    Album.find(params[:id]).destroy
+    redirect_to albums_path
+  end
 end

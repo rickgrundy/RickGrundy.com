@@ -9,8 +9,6 @@ RickGrundy::Application.routes.draw do
     put :sort, :on => :collection
   end
   
-  resource :import
-  
   devise_for :users do
     get "login", :to => "devise/sessions#new"
     get "logout", :to => "devise/sessions#destroy"

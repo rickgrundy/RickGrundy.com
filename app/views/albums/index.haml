@@ -14,15 +14,16 @@
         .blurb         
           %a{:href => album.path, :title => "#{album.name} photographs"}=raw album.blurb
           
--content_for :admin do
-  =link_to "Import Photos", import_path
-  |
-  =link_to "Logout", destroy_user_session_path
-  <br/>
-  Hidden Albums
-  -@hidden_albums.each do |album| 
+-if user_signed_in?
+  -content_for :admin do
+    =link_to "Import Photos", import_path
     |
-    =link_to album.name, album.path
+    =link_to "Logout", destroy_user_session_path
+    <br/>
+    Hidden Albums
+    -@hidden_albums.each do |album| 
+      |
+      =link_to album.name, album.path
   
-  :javascript
-    sortable('#albums', '#{sort_albums_path}', albumsSorted);
+    :javascript
+      sortable('#albums', '#{sort_albums_path}', albumsSorted);

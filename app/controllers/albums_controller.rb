@@ -3,6 +3,7 @@ class AlbumsController < ApplicationController
   
 	def index
 	  @albums = Album.where(hidden: false).order(:position)
+	  @hidden_albums = Album.where(hidden: true) if user_signed_in?
 	end
 	
 	def show

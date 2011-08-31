@@ -18,6 +18,11 @@
   =link_to "Import Photos", import_path
   |
   =link_to "Logout", destroy_user_session_path
-
+  <br/>
+  Hidden Albums
+  -@hidden_albums.each do |album| 
+    |
+    =link_to album.name, album.path
+  
   :javascript
     sortable('#albums', '#{sort_albums_path}', albumsSorted);

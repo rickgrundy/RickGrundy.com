@@ -9,7 +9,7 @@ class Photo < ActiveRecord::Base
       :access_key_id => ENV["S3_KEY"],
       :secret_access_key => ENV["S3_SECRET"]
     },
-    :s3_host_alias => Rails.env.production? ? 'cdn.rickgrundy.com' : nil,
+    :s3_host_alias => Rails.env.production? ? 'cdn.rickgrundy.com' : "s3.amazonaws.com/rickgrundy-development",
     :url => ':s3_alias_url',
     :bucket => "rickgrundy-#{Rails.env}",
     :path => "images/:style/:id.:extension",

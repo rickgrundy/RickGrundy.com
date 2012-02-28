@@ -9,7 +9,7 @@ class Photo < ActiveRecord::Base
       :access_key_id => ENV["S3_KEY"],
       :secret_access_key => ENV["S3_SECRET"]
     },
-    :bucket => "RickGrundy.com-#{Rails.env}",
+    :bucket => "rickgrundy-#{Rails.env}",
     :path => "images/:style/:id.:extension",
     :styles => { 
       :full => "930x620>",

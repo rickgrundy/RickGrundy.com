@@ -16,4 +16,6 @@ RickGrundy::Application.routes.draw do
   
   match 'photo/:id/:camelized_title' => 'photos#show', :as => 'photo'
   match ':name' => 'albums#show_by_name'
+  
+  match 'contact/:target' => "contact#send_email"
 end

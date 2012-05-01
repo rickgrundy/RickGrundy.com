@@ -54,6 +54,8 @@ GEM
       activerecord
       activesupport
     polyglot (0.3.1)
+    pony (1.4)
+      mail (> 2.0)
     rack (1.2.2)
     rack-mount (0.6.13)
       rack (>= 1.0.0)
@@ -91,4 +93,5 @@ DEPENDENCIES
   haml
   mysql2
   paperclip
+  pony
   rails

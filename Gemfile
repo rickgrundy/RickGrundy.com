@@ -6,6 +6,7 @@ gem 'devise'
 gem 'acts_as_list'
 gem 'paperclip'
 gem 'aws-s3'
+gem 'pony'
 
 group :development, :test do
   gem 'mysql2'

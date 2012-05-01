@@ -1,7 +1,7 @@
 class ContactController < ApplicationController
   TARGETS = {
     "rickgrundy" => { email: "rick@rickgrundy.com", redirect: "http://rickgrundy.com" },
-    "andygrundyarchitect" => { email: "rick@rickgrundy.com", redirect: "http://www.andygrundyarchitect.co.uk/contact_thanks.html" }
+    "andygrundyarchitect" => { email: "andy@andygrundyarchitect.co.uk", redirect: "http://www.andygrundyarchitect.co.uk/contact_thanks.html" }
   }
   
   def send_email
@@ -16,11 +16,12 @@ class ContactController < ApplicationController
       Their phone number: #{params[:phone].present? ? params[:phone] : "Unknown"}
       
       Their message:
+      
       #{params[:message]}
     "
     
-    puts body
+    Pony.mail(:to => target[:email], :from => target[:email], :cc => "rick@rickgrundy.com", :subject => "Website contact from #{name}", :body => body)
     
-    Pony.mail(:to => target[:email], :from => target[:email], :subject => "Website contact from #{name}", :body => body)
+    redirect_to target[:redirect]
   end
 end

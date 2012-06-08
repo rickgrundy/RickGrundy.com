@@ -50,6 +50,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.16)
     mysql2 (0.2.6)
+    newrelic_rpm (3.3.5)
     paperclip (2.3.6)
       activerecord
       activesupport
@@ -92,6 +93,7 @@ DEPENDENCIES
   devise
   haml
   mysql2
+  newrelic_rpm
   paperclip
   pony
   rails

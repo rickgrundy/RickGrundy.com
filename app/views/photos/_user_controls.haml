@@ -6,7 +6,6 @@
     -if @previous_photo && @next_photo
       |
     -if @next_photo
-      |
       =link_to raw("#{@next_photo.title} &rsaquo;"), @next_photo.path
   #back_to_album_link
     %h3=link_to raw("&laquo; Back to #{@album.name}"), @album.path

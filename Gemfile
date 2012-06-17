@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 
+gem 'thin'
 gem 'rails'
 gem 'haml'
 gem 'devise'

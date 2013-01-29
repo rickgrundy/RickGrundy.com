@@ -8,7 +8,7 @@ gem 'acts_as_list'
 gem 'paperclip'
 gem 'aws-s3'
 gem 'pony'
-gem 'newrelic_rpm'
+gem 'newrelic_rpm', '3.5.5.38'
 
 group :development, :test do
   gem 'sqlite3'

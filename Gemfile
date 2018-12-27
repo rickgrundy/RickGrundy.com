@@ -4,12 +4,11 @@ ruby '2.2.4'
 
 gem 'thin'
 gem 'rails', '~> 3.2'
-gem 'haml'
+gem 'haml', '~> 4.0'
 gem 'devise'
 gem 'acts_as_list'
 gem 'paperclip'
-gem 'aws-sdk'
-gem 'aws-s3'
+gem 'aws-sdk', '~> 2.10'
 gem 'pony'
 gem 'newrelic_rpm', '~> 3.5'
 
@@ -20,5 +19,5 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.11'
 end
